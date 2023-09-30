@@ -57,12 +57,19 @@ buscar = async () => {
     await addClientesTable(filter_clientes)
 }
 
+showModal = () => {
+    let meuModal = new bootstrap.Modal(document.getElementById("infor"))
+    meuModal.show();
+}
+
 deletar = async (e) => {
     console.log(e.id)
-    document.getElementById`email-${i}`
     
+    showModal();
 }
 
 editar = async (e) => {
     console.log(e.id);
+
+    showModal();
 }
