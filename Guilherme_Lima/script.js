@@ -98,6 +98,7 @@ editar = async (e) => {
     const ENVIAR = document.getElementById('enviar')
 
     ENVIAR.innerHTML = "Alterar"
+    ENVIAR.setAttribute("data-type", "editar")
 
     const TITLE = document.getElementById("infor-title")
     TITLE.innerHTML = `Editar: ${filter_clientes[0].name}` 
