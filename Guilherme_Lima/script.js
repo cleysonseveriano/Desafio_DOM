@@ -69,7 +69,36 @@ deletar = async (e) => {
 }
 
 editar = async (e) => {
-    console.log(e.id);
+    const ID = parseInt(e.id.split("editar-")[1])
+    const infor = await window.clientes;
+
+    // FILTRAR PELO EMAIL
+    const EMAIL_INFOR = document.getElementById(`email-${ID}`).innerHTML
+    let filter_clientes = infor.filter((cliente) => 
+    cliente.email === EMAIL_INFOR
+    );
 
     showModal();
+    const NAME = document.getElementById('infor-name')
+    const EMAIL = document.getElementById('infor-email')
+    const ADDRESS = document.getElementById('infor-anddress')
+    const CITY = document.getElementById('infor-city')
+    const STATE = document.getElementById('infor-state')
+    const CEP = document.getElementById('infor-cep')
+    const PHONE_NUMBER = document.getElementById('infor-phoneNumber')
+
+    NAME.value = filter_clientes[0].name
+    EMAIL.value =   filter_clientes[0].email
+    ADDRESS.value = filter_clientes[0].address
+    CITY.value =    filter_clientes[0].city
+    STATE.value = filter_clientes[0].state
+    CEP.value = filter_clientes[0].cep
+    PHONE_NUMBER.value = filter_clientes[0].phoneNumber
+
+    const ENVIAR = document.getElementById('enviar')
+
+    ENVIAR.innerHTML = "Alterar"
+
+    const TITLE = document.getElementById("infor-title")
+    TITLE.innerHTML = `Editar: ${filter_clientes[0].name}` 
 }
